@@ -1,5 +1,6 @@
 import React from 'react';
 
+
 const OrdersList = (props) => {
     const { orders } = props;
     if (!props || !props.orders || !props.orders.length) return (
@@ -17,7 +18,7 @@ const OrdersList = (props) => {
                     <p>Ordered by: {order.ordered_by || ''}</p>
                 </div>
                 <div className="col-md-4 d-flex view-order-middle-col">
-                    <p>Order placed at {`${createdDate.getHours()}:${createdDate.getMinutes()}:${createdDate.getSeconds()}`}</p>
+                    <p>Order placed at {`${createdDate.getHours(Date.parse())}:${createdDate.getMinutes(Date.parse)}:${createdDate.getSeconds(Date.parse)}`}</p>
                     <p>Quantity: {order.quantity}</p>
                 </div>
                 <div className="col-md-4 view-order-right-col">
