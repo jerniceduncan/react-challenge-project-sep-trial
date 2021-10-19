@@ -3,7 +3,6 @@ import { useSelector } from 'react-redux';
 import { Template } from '../../components';
 import { SERVER_IP } from '../../private';
 import './orderForm.css';
-
 const ADD_ORDER_URL = `${SERVER_IP}/api/add-order`;
 
 export default function OrderForm(props) {
