@@ -10,6 +10,11 @@ const OrdersList = (props) => {
 
     return orders.map(order => {
         const createdDate = new Date(order.createdAt);
+        const time = {
+            hour: createdDate.getHours() % 12 || 12,
+            minute: createdDate.getMinutes().toString().padStart(2, "0"),
+            seconds: createdDate.getSeconds().toString().padStart(2, "0"),
+          };
         return (
             <div className="row view-order-container" key={order._id}>
                 <div className="col-md-4 view-order-left-col p-3">
@@ -17,7 +22,7 @@ const OrdersList = (props) => {
                     <p>Ordered by: {order.ordered_by || ''}</p>
                 </div>
                 <div className="col-md-4 d-flex view-order-middle-col">
-                    <p>Order placed at {`${createdDate.getHours()}:${createdDate.getMinutes()}:${createdDate.getSeconds()}`}</p>
+                    <p>Order placed at  {`${time.hour}:${time.minute}:${time.seconds}`}</p>
                     <p>Quantity: {order.quantity}</p>
                 </div>
                 <div className="col-md-4 view-order-right-col">
