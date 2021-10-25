@@ -23,7 +23,7 @@ const OrdersList = (props) => {
           <p>Ordered by: {order.ordered_by || ""}</p>
         </div>
         <div className="col-md-4 d-flex view-order-middle-col">
-          <p>Order placed at {`${time.hour.toString().padStart(2, "0")}:${time.minute}:${time.seconds}`}</p>
+          <p>Order placed at <span id="orderTime">{`${time.hour.toString().padStart(2, "0")}:${time.minute}:${time.seconds}`}</span></p>
           <p>Quantity: {order.quantity}</p>
         </div>
         <div className="col-md-4 view-order-right-col">
