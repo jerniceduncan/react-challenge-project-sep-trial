@@ -1,11 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./nav.css";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { logoutUser } from "../../redux/actions/authActions";
 
 
 const Nav = (props ) => {
+    const auth = useSelector((state) => state.auth.email);
     const dispatch = useDispatch();
     return (
         <div className="nav-strip">
@@ -20,7 +21,7 @@ const Nav = (props ) => {
                 </div>
             </Link>
             <Link to={"/"} className="nav-link">
-                <div className="nav-link-style">
+                <div className="nav-link-style">{auth}
                     <label className="nav-label" onClick={() => dispatch(logoutUser())}  >Log Out</label>
                 </div>
             
